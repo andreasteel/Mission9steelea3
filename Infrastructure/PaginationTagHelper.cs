@@ -40,8 +40,13 @@ namespace Mission9steelea3.Infrastructure
             {
                 TagBuilder tb = new TagBuilder("a");
 
-                tb.Attributes["href"] = uh.Action();
+                tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
+                tb.InnerHtml.Append(i.ToString());
+
+                final.InnerHtml.AppendHtml(tb);
             }
+
+            tho.Content.AppendHtml(final.InnerHtml);
         }
     }
 }
